@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Phuot App</string>
+    <string name="menu_item_search">Search</string>
+    <string name="menu_item_about">About App</string>
+    <string name="menu_item_contact">Contact</string>
+
+    <string name="article_heading">Chợ đêm Đà Lạt</string>
+    <string name="article_summary">Nhiều cảnh đẹp, đồ ăn ngon với giá cực rẻ</string>
+    <string name="content">Chuyến đi phượt đến Đà Lạt của chúng tôi diễn ra vào cuối mùa thu. Chúng tôi ngây ngất với vẻ đẹp trong lành của thiên nhiên và sự thân thiện của người dân nơi đây</string>
+</resources>
