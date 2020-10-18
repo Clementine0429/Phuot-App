@@ -4,56 +4,40 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.phuot_app.R;
 import com.example.phuot_app.ViewPagerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity extends AppCompatActivity {
 
-    int imgs[]= {R.drawable.banner1, R.drawable.banner5, R.drawable.banner3, R.drawable.banner4, R.drawable.banner5};
-    TabLayout tabLayout;
-    ViewPager2 viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        viewPager = findViewById(R.id.view_pager);
-        tabLayout = findViewById(R.id.tabs);
-
-        viewPager.setAdapter(createCardAdapter());
-        new TabLayoutMediator(tabLayout, viewPager, new TabLayoutMediator.TabConfigurationStrategy() {
+        Button btnArticle= findViewById(R.id.btnHome);
+        btnArticle.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                switch (position){
-                    case 0:
-                        tab.setText("Ăn Uống");
-                        break;
-                    case 1:
-                        tab.setText("Tham Quan");
-                        break;
-                    case 2:
-                        tab.setText("Mua Sắm");
-                    break;
-                    case 3:
-                        tab.setText("Thêm Bài Viết");
-                        break;
-                }
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this, ManageArticleActivity.class);
+                startActivity(intent);
             }
-        }).attach();
+        });
     }
 
-    private ViewPagerAdapter createCardAdapter(){
-        ViewPagerAdapter viewPagerAdapter= new ViewPagerAdapter(this);
-        return viewPagerAdapter;
-    }
+    // Khoi tao Context Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout, menu);
@@ -62,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Xu ly tung item trong Context Menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

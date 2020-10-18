@@ -9,11 +9,11 @@
     android:orientation="vertical"
     android:weightSum="5"
     android:padding="16dp"
+    android:fitsSystemWindows="true"
     android:layout_marginBottom="20dp"
     android:layout_marginLeft="6dp"
     android:layout_marginRight="6dp"
     card_view:cardCornerRadius="8dp"
-    card_view:cardBackgroundColor="@color/red_700"
     card_view:cardElevation="8dp">
 
     <LinearLayout
@@ -41,7 +41,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:src="@drawable/cho_da_lat" />
 
     <TextView

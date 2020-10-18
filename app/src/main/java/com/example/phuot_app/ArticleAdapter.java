@@ -14,8 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 import java.util.List;
 
+//Là cầu nối giữa class Article và CardFragment
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleViewHolder> {
-    private static final String TAG = "ArticleAdapter";
+
     private LinkedList<Article> Articles= new LinkedList<Article>() {
         @Override
         public Article get(int i) {
@@ -30,12 +31,15 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     private Context Context;
     private LayoutInflater LayoutInflater;
 
+    //khởi tạo ArticleAdapter
     public ArticleAdapter(LinkedList<Article> articles, android.content.Context context) {
         Articles = articles;
         Context = context;
         LayoutInflater = LayoutInflater.from(context);
     }
 
+    //Holder dịch thoáng: hộp lưu trữ
+    // hiển thị từng item theo mẫu article_layout.xml
     @NonNull
     @Override
     public ArticleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -44,6 +48,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         return new ArticleViewHolder(itemView);
     }
 
+    //Binding dữ liệu vào từng item theo position
     @Override
     public void onBindViewHolder(@NonNull ArticleViewHolder holder, int position) {
         //get article in list Articles via position
@@ -61,6 +66,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         return Articles.size();
     }
 
+    //khởi tạo Holder
+    // có các thuộc tính trung gian kết nối đến các View
     public class ArticleViewHolder extends RecyclerView.ViewHolder{
         private TextView tvArticleHeading;
         private TextView tvArticleSummary;

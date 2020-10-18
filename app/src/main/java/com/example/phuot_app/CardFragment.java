@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.LinkedList;
 import java.util.List;
 
+// quản lý nội dung hiển thị liên quan đến home_layout.xml
 public class CardFragment extends Fragment {
 
     private RecyclerView rvArticles;
@@ -28,6 +29,7 @@ public class CardFragment extends Fragment {
     View rootView;
     ViewFlipper viewFlipper;
     int imgs[]= {R.drawable.banner1, R.drawable.banner5, R.drawable.banner3, R.drawable.banner4, R.drawable.banner5};
+
     public CardFragment(){
 
     };
@@ -39,6 +41,7 @@ public class CardFragment extends Fragment {
         return fragment;
     }
 
+    // gắn layout khác nhau vào nội dung của từng tab -> trả ra view
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -56,9 +59,6 @@ public class CardFragment extends Fragment {
         if(getArguments()!=null){
             counter= getArguments().getInt(ARG_COUNT);
         }
-
-
-
     }
 
 
@@ -78,11 +78,12 @@ public class CardFragment extends Fragment {
                 R.drawable.cho_da_lat ));
         articleAdapter= new ArticleAdapter(articles, getActivity());
 
-
         rvArticles.setHasFixedSize(true);
 
+        // LinearLayoutManager quản lý hiển thị của RecycleView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        // đổ LayoutManager và Adapter vào RecycleView
         rvArticles.setLayoutManager(linearLayoutManager);
         rvArticles.setAdapter(articleAdapter);
 

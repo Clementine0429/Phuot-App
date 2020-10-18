@@ -6,7 +6,8 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
-    private static final int CARD_ITEM_SIZE = 4;
+    //Số lượng tab
+    private static final int CARD_ITEM_SIZE = 3;
 
 
     public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
